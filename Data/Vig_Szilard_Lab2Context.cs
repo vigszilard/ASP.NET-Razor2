@@ -19,5 +19,7 @@ namespace Vig_Szilard_Lab2.Data
         public DbSet<Vig_Szilard_Lab2.Models.Publisher>? Publisher { get; set; }
 
         public DbSet<Vig_Szilard_Lab2.Models.Author>? Author { get; set; }
+
+        public DbSet<Vig_Szilard_Lab2.Models.Category>? Category { get; set; }
     }
 }
