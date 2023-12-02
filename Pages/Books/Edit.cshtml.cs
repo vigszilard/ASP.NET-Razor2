@@ -44,9 +44,6 @@ namespace Vig_Szilard_Lab2.Pages.Books
             //apelam PopulateAssignedCategoryData pentru o obtine informatiile necesare checkbox-
             //urilor folosind clasa AssignedCategoryData
             PopulateAssignedCategoryData(_context, Book);
-            //apelam PopulateAssignedCategoryData pentru o obtine informatiile necesare checkbox-
-            //urilor folosind clasa AssignedCategoryData
-            PopulateAssignedCategoryData(_context, Book);
             var authorList = _context.Author.Select(x => new
             {
                 x.ID,
@@ -68,6 +65,7 @@ namespace Vig_Szilard_Lab2.Pages.Books
             //se va include Author conform cu sarcina de la lab 2
             var bookToUpdate = await _context.Book
             .Include(i => i.Publisher)
+            .Include(i => i.Author)
             .Include(i => i.BookCategories)
             .ThenInclude(i => i.Category)
             .FirstOrDefaultAsync(s => s.ID == id);

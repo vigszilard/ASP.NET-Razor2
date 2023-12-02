@@ -27,10 +27,8 @@ namespace Vig_Szilard_Lab2.Pages.Books
                 FullName = x.LastName + " " + x.FirstName
             });
 
-            // daca am adaugat o proprietate FullName in clasa Author
             ViewData["AuthorID"] = new SelectList(authorList, "ID", "FullName");
-            ViewData["PublisherID"] = new SelectList(_context.Publisher, "ID",
-           "PublisherName");
+            ViewData["PublisherID"] = new SelectList(_context.Publisher, "ID", "PublisherName");
 
             var book = new Book();
 
