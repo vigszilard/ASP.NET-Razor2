@@ -19,7 +19,7 @@ namespace Vig_Szilard_Lab2.Pages.Borrowings
             _context = context;
         }
 
-      public Borrowing Borrowing { get; set; } = default!; 
+        public Borrowing Borrowing { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,12 +28,16 @@ namespace Vig_Szilard_Lab2.Pages.Borrowings
                 return NotFound();
             }
 
-            var borrowing = await _context.Borrowing.FirstOrDefaultAsync(m => m.ID == id);
+            var borrowing = await _context.Borrowing
+                .Include(b => b.Member)
+                .Include(b => b.Book)
+                .ThenInclude(book => book.Author)
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (borrowing == null)
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Borrowing = borrowing;
             }
