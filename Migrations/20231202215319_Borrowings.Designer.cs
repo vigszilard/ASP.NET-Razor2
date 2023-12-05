@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vig_Szilard_Lab2.Data;
 
@@ -11,9 +12,10 @@ using Vig_Szilard_Lab2.Data;
 namespace Vig_Szilard_Lab2.Migrations
 {
     [DbContext(typeof(Vig_Szilard_Lab2Context))]
-    partial class Vig_Szilard_Lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20231202215319_Borrowings")]
+    partial class Borrowings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
